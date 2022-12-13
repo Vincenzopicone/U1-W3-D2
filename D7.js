@@ -226,31 +226,77 @@ const movies = [
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
 
-function filmPiuVecchio(movies) {
-  arrayAnni = [];
-  for (let i = 0; i < movies.length; i++) {
-    arrayAnni.push(parseInt(movies[i].Year));
-  }
-  return Math.min(arrayAnni);
-}
+/*const filmPiuVecchio = (array) => {
+  const filtrato = array.filter(
+    (elemento) => elemento.Year == Math.min(...movies.map((item) => item.Year))
+  );
+  console.log("Esercizio 10:", elemento);
+};
 
-console.log("Esercizio 10:", filmPiuVecchio(movies));
+filmPiuVecchio(movies);*/
+
 /* ESERCIZIO 11
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
+
+const numeroFilm = (array) => {
+  return array.length;
+};
+
+console.log("Esercizio 11:", numeroFilm(movies));
 
 /* ESERCIZIO 12
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
 
+const soloTitoli = (array) => {
+  return array.map((elemento) => elemento.Title);
+};
+
+console.log("Esercizio 12:", soloTitoli(movies));
+
 /* ESERCIZIO 13
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
+
+const millennio = (array) => {
+  let risultato = [];
+  for (let i = 0; i < array.length; i++) {
+    if (parseInt(array[i].Year) > 1999) {
+      risultato.push(array[i]);
+    }
+  }
+  return risultato;
+};
+
+console.log("Esercizio 13:", millennio(movies));
 
 /* ESERCIZIO 14
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 
+const getMovieById = function (array, id) {
+  let foundMovie = null;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].imdbID === id) {
+      foundMovie = array[i];
+    }
+  }
+  return foundMovie;
+};
+
+console.log("Esercizio 14:", getMovieById(movies, "tt0167260"));
+
 /* ESERCIZIO 15
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+
+const sommaTuttiGliAnni = (array) => {
+  let risultato = 0;
+  for (let i = 1; i < array.length; i++) {
+    risultato += parseInt(array[i].Year);
+  }
+  return risultato;
+};
+
+console.log("Esercizio 15:", sommaTuttiGliAnni(movies));
