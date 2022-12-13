@@ -226,6 +226,15 @@ const movies = [
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
 
+function filmPiuVecchio(movies) {
+  arrayAnni = [];
+  for (let i = 0; i < movies.length; i++) {
+    arrayAnni.push(parseInt(movies[i].Year));
+  }
+  return Math.min(arrayAnni);
+}
+
+console.log("Esercizio 10:", filmPiuVecchio(movies));
 /* ESERCIZIO 11
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
